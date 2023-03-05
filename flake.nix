@@ -13,7 +13,9 @@
           text = pkgs.lib.readFile ./segment-to-gpx.sh;
         };
       in rec {
-        apps = { inherit segmentToGpx; };
+        apps.segmentToGpx = {
+                    type = "app";
+                    program = "${segmentToGpx}/bin/segment-to-gpx.sh";};
         defaultApp = apps.segmentToGpx;
       });
 }
